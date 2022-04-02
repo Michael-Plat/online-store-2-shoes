@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Header = () => {
+function Header() {
   return (
     <header className="d-flex justify-between align-center p-40">
       <div className="d-flex align-center">
@@ -21,6 +21,6 @@ const Header = () => {
       </ul>
     </header>
   );
-};
+}
 
 export default Header;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Drawer = () => {
+function Drawer() {
   return (
     <div style={{ display: 'none' }} className="overlay">
       <div className="drawer">
@@ -53,6 +53,6 @@ const Drawer = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Drawer;

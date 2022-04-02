@@ -4,6 +4,29 @@ import Card from './components/Card';
 import Drawer from './components/Drawer';
 import Header from './components/Header';
 
+const arr = [
+  {
+    title: 'Мужские Кроссовки Nike Blazer Mid suede',
+    price: 17000,
+    img: '/img/shoes/1.jpg',
+  },
+  {
+    title: 'Мужские Кроссовки Nike Air Max 270',
+    price: 15000,
+    img: '/img/shoes/2.jpg',
+  },
+  {
+    title: 'Мужские Кроссовки Nike Blazer Mid suede',
+    price: 14000,
+    img: '/img/shoes/3.jpg',
+  },
+  {
+    title: 'Мужские Кроссовки Puma X Aka Future Rider',
+    price: 16000,
+    img: '/img/shoes/4.jpg',
+  },
+];
+
 function App() {
   return (
     <div className="wrapper clear">
@@ -18,10 +41,9 @@ function App() {
           </div>
         </div>
         <div className="d-flex">
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+          {arr.map((obj) => (
+            <Card key={obj.id} title={obj.title} price={obj.price} imgUrl={obj.img} />
+          ))}
         </div>
       </div>
     </div>
