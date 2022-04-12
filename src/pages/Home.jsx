@@ -19,7 +19,7 @@ function Home({
     return (isLoading ? [...Array(12)] : filtredItems).map((item, index) => (
       <Card
         key={index}
-        onAddFavorites={(obj) => onAddFavorites(obj)}
+        onFavorite={(obj) => onAddFavorites(obj)}
         onPlus={(obj) => onAddToCart(obj)}
         loading={isLoading}
         {...item}
@@ -29,7 +29,7 @@ function Home({
   return (
     <div className="content p-40">
       <div className="d-flex align-center justify-between mb-40">
-        <h1>{searchValue ? `Поиск по запросу: "${searchValue}"` : 'Вся обувь'} </h1>
+        <h1>{searchValue ? `Поиск по запросу: "${searchValue}"` : 'Вся Fire обувь'} </h1>
         <div className="search-block d-flex">
           {searchValue && (
             <img

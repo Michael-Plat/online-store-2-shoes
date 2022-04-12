@@ -1,13 +1,15 @@
 import axios from 'axios';
 import React from 'react';
 
-import AppContext from '../Context';
-import Info from './Card/Info';
+import Info from '../Info';
+import { useCart } from '../hooks/useCart';
+
+import styles from './Drawer.module.scss';
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-function Drawer({ onClose, items = [], onCartDelete }) {
-  const { cartItems, setCartItems } = React.useContext(AppContext);
+function Drawer({ onClose, items = [], onCartDelete, opened }) {
+  const { cartItems, setCartItems, totalPrice } = useCart(); // custom hook
   const [orderId, setOrderId] = React.useState(null);
   const [isOrederComplete, setIsOrderComplete] = React.useState(false);
   const [isLoading, setIsLoading] = React.useState(false);
@@ -35,8 +37,8 @@ function Drawer({ onClose, items = [], onCartDelete }) {
   };
 
   return (
-    <div className="overlay">
-      <div className="drawer">
+    <div className={`${styles.overlay} ${opened ? styles.overlayVisible : ''}`}>
+      <div className={styles.drawer}>
         <h2 className="d-flex justify-between mb-30">
           Корзина{' '}
           <img onClick={onClose} className="removeBtn" src="/img/btn-remove.svg" alt="Close" />
@@ -44,7 +46,7 @@ function Drawer({ onClose, items = [], onCartDelete }) {
 
         {items.length > 0 ? (
           <div className="d-flex flex-column flex">
-            <div className="items">
+            <div className="items flex">
               {items.map((obj) => (
                 <div className="cartItem d-flex align-center mb-20" key={obj.id}>
                   <div
@@ -68,12 +70,12 @@ function Drawer({ onClose, items = [], onCartDelete }) {
                 <li>
                   <span>Итого</span>
                   <div></div>
-                  <b>21 498 руб.</b>
+                  <b>{totalPrice} руб.</b>
                 </li>
                 <li>
                   <span>Налог 5%:</span>
                   <div></div>
-                  <b>1 074 руб.</b>
+                  <b>{(totalPrice / 100) * 5} руб.</b>
                 </li>
               </ul>
               <button disabled={isLoading} onClick={onClickOrder} className="greenButton">
