@@ -1,0 +1,17 @@
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .mainContainer > *:not(:last-child) {
+    margin-bottom: 50px;
+  }
+  
+.imgSlider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  height: 100%;
+  width: 100%;
+  }

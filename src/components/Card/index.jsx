@@ -1,8 +1,9 @@
 import React from 'react';
 
-import styles from './Card.module.scss';
 import ContentLoader from 'react-content-loader';
 import { AppContext } from '../../Context';
+
+import styles from './Card.module.scss';
 
 function Card({ id, imgUrl, title, price, onPlus, onFavorite, favorited = false, loading }) {
   const { isItemAdded } = React.useContext(AppContext);
