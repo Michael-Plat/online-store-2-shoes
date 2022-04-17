@@ -1,6 +1,6 @@
 import React from 'react';
-
 import ContentLoader from 'react-content-loader';
+
 import { AppContext } from '../../Context';
 
 import styles from './Card.module.scss';
@@ -8,7 +8,7 @@ import styles from './Card.module.scss';
 function Card({ id, imgUrl, title, price, onPlus, onFavorite, favorited = false, loading }) {
   const { isItemAdded } = React.useContext(AppContext);
   const obj = { id, parentId: id, imgUrl, title, price };
-  console.log(favorited);
+
   const onClickPlus = () => {
     onPlus(obj);
   };

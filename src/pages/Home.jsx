@@ -32,15 +32,23 @@ function Home({
   return (
     <div className="content p-40">
       <div className={styles.mainContainer}>
-        <CarouselCompound infinite>
+        <CarouselCompound infinite imdex>
           <CarouselCompound.Page>
-            <img className={styles.imgSlider} src="img/Slider-Shoes/slider-1.jpg" />
+            <img className={styles.imgSlider} src="img/Slider-Shoes/slider-1.jpg" alt="Slider" />
           </CarouselCompound.Page>
           <CarouselCompound.Page>
-            <img className={styles.imgSlider} src="img/Sale-Slider/sale-slider-2.jpg" />
+            <img
+              className={styles.imgSlider}
+              src="img/Sale-Slider/sale-slider-1.jpg"
+              alt="Slider"
+            />
           </CarouselCompound.Page>
           <CarouselCompound.Page>
-            <img className={styles.imgSlider} src="img/Sale-Slider/sale-slider-1.jpg" />
+            <img
+              className={styles.imgSlider}
+              src="img/Sale-Slider/sale-slider-2.jpg"
+              alt="Slider"
+            />
           </CarouselCompound.Page>
         </CarouselCompound>
       </div>

@@ -1,9 +1,12 @@
-import { useContext } from 'react';
+import React from 'react';
+
 import { CarouselContext } from '../carousel-context';
+
 import './Page.scss';
 
-export const Page = ({ children }) => {
-  const { width } = useContext(CarouselContext);
+export function Page({ children }) {
+  const { width } = React.useContext(CarouselContext);
+
   return (
     <div
       className="pageMainContainer"
@@ -14,4 +17,4 @@ export const Page = ({ children }) => {
       {children}
     </div>
   );
-};
+}

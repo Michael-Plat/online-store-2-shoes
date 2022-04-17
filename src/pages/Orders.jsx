@@ -16,7 +16,7 @@ export function Orders() {
         setOrders(data.reduce((prev, obj) => [...prev, ...obj.items], []));
         setIsLoading(false);
       } catch (error) {
-        alert('Щшибка при запросе покупок :(');
+        alert('Ошибка при запросе покупок :(');
         console.error(error);
       }
     })();

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import { AppContext } from '../Context';
 
@@ -10,10 +11,12 @@ function Info({ title, image, description, altImg }) {
       <img className="mb-20" width="120px" src={image} alt={altImg} />
       <h2>{title}</h2>
       <p className="opacity-6">{description}</p>
-      <button onClick={() => setCartOpened(false)} className="greenButton">
-        <img src="/img/arrow.svg" alt="Arrow" />
-        Вернуться назад
-      </button>
+      <Link to={'/'}>
+        <button onClick={() => setCartOpened(false)} className="greenButton">
+          <img src="/img/arrow.svg" alt="Arrow" />
+          Вернуться назад
+        </button>
+      </Link>
     </div>
   );
 }

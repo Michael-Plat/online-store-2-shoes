@@ -1,26 +1,28 @@
-import { useEffect, useRef, useState, Children, cloneElement } from 'react';
+import React from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+
 import Page from './Page';
 import { CarouselContext } from './carousel-context';
+
 import './Carousel.scss';
 
 const TRANSITION_DURATION = 300;
 
-export function Carousel({ children, infinite }) {
-  const [offset, setOffset] = useState(0);
-  const [width, setWidth] = useState(450);
-  const [pages, setPages] = useState([]);
-  const [clonesCount, setClonesCount] = useState({ head: 0, tail: 0 });
-  const [transitionDuration, setTransitionDuration] = useState(300);
+export function Carousel({ children, key: index, infinite }) {
+  const [offset, setOffset] = React.useState(0);
+  const [width, setWidth] = React.useState(450);
+  const [pages, setPages] = React.useState([]);
+  const [clonesCount, setClonesCount] = React.useState({ head: 0, tail: 0 });
+  const [transitionDuration, setTransitionDuration] = React.useState(300);
 
-  const windowElRef = useRef();
+  const windowElRef = React.useRef();
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (infinite) {
       setPages([
-        cloneElement(children[Children.count(children) - 1]),
+        React.cloneElement(children[React.Children.count(children) - 1]),
         ...children,
-        cloneElement(children[0]), // tail: 1
+        React.cloneElement(children[0]), // tail: 1
       ]);
       setClonesCount({ head: 1, tail: 1 });
       return;
@@ -28,10 +30,10 @@ export function Carousel({ children, infinite }) {
     setPages(children);
   }, [children, infinite]);
 
-  useEffect(() => {
+  React.useEffect(() => {
     const resizeHandler = () => {
       const windowElWidth = windowElRef.current.offsetWidth;
-      console.log('resized', windowElWidth);
+
       setWidth(windowElWidth);
       setOffset(-(clonesCount.head * width)); // to prevent wrong offset
     };
@@ -44,7 +46,7 @@ export function Carousel({ children, infinite }) {
     };
   }, [clonesCount, width]);
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (transitionDuration === 0) {
       setTimeout(() => {
         setTransitionDuration(TRANSITION_DURATION);
@@ -52,10 +54,10 @@ export function Carousel({ children, infinite }) {
     }
   }, [transitionDuration]);
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (!infinite) return;
 
-    // с элемента 0 (clone) -> к предпоследнему (реальный)
+    // с элемента 0 (clone) -> к предпоследнему (реальный);
     if (offset === 0) {
       setTimeout(() => {
         setTransitionDuration(0);
@@ -63,7 +65,8 @@ export function Carousel({ children, infinite }) {
       }, TRANSITION_DURATION);
       return;
     }
-    // с элемента n (clone) -> к элементу 1 (реальный)
+
+    // с элемента n (clone) -> к элементу 1 (реальный);
     if (offset === -(width * (pages.length - 1))) {
       setTimeout(() => {
         setTransitionDuration(0);
@@ -73,25 +76,25 @@ export function Carousel({ children, infinite }) {
     }
   }, [offset, infinite, pages, clonesCount, width]);
 
-  const handleLeftArrowClick = () => {
+  const handleLeftClick = () => {
     setOffset((currentOffset) => {
       const newOffset = currentOffset + width;
       return Math.min(newOffset, 0);
     });
   };
-  const handleRightArrowClick = () => {
+
+  const handleRightClick = () => {
     setOffset((currentOffset) => {
       const newOffset = currentOffset - width;
       const maxOffset = -(width * (pages.length - 1));
       return Math.max(newOffset, maxOffset);
     });
-    setTimeout(handleRightArrowClick, 9000);
   };
 
   return (
     <CarouselContext.Provider value={{ width }}>
       <div className="mainContainer">
-        <FaChevronLeft className="arrow" onClick={handleLeftArrowClick} />
+        <FaChevronLeft className="arrow" onClick={handleLeftClick} />
         <div className="window" ref={windowElRef}>
           <div
             className="allPagesContainer"
@@ -99,10 +102,12 @@ export function Carousel({ children, infinite }) {
               transform: `translateX(${offset}px)`,
               transitionDuration: `${transitionDuration}ms`,
             }}>
-            {pages}
+            {pages.map((pages, index) => (
+              <React.Fragment key={index}>{pages}</React.Fragment>
+            ))}
           </div>
         </div>
-        <FaChevronRight className="arrow" onClick={handleRightArrowClick} />
+        <FaChevronRight className="arrow" onClick={handleRightClick} />
       </div>
     </CarouselContext.Provider>
   );
