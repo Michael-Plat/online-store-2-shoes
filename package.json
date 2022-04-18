@@ -2,7 +2,7 @@
   "name": "online-store-2-shoes",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://michael-plat.github.io/online-store-2-shoes",
+  "homepage": "https://michael-plat.github.io/online-store-2-shoes/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.3",

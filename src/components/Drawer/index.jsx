@@ -41,7 +41,12 @@ function Drawer({ onClose, items = [], onCartDelete, opened }) {
       <div className={styles.drawer}>
         <h2 className="d-flex justify-between mb-30">
           Корзина{' '}
-          <img onClick={onClose} className="removeBtn" src="/img/btn-remove.svg" alt="Close" />
+          <img
+            onClick={onClose}
+            className="removeBtn"
+            src="https://github.com/Michael-Plat/online-store-2-shoes/blob/gh-pages/img/btn-remove.svg?raw=true"
+            alt="Close"
+          />
         </h2>
 
         {items.length > 0 ? (
@@ -59,7 +64,7 @@ function Drawer({ onClose, items = [], onCartDelete, opened }) {
                   <img
                     onClick={() => onCartDelete(obj.id)}
                     className="removeBtn"
-                    src="/img/btn-remove.svg"
+                    src="https://github.com/Michael-Plat/online-store-2-shoes/blob/gh-pages/img/btn-remove.svg?raw=true"
                     alt="Remove"
                   />
                 </div>
@@ -79,7 +84,11 @@ function Drawer({ onClose, items = [], onCartDelete, opened }) {
                 </li>
               </ul>
               <button disabled={isLoading} onClick={onClickOrder} className="greenButton">
-                Оформить заказ <img src="/img/arrow.svg" alt="Arrow" />
+                Оформить заказ{' '}
+                <img
+                  src="https://github.com/Michael-Plat/online-store-2-shoes/blob/gh-pages/img/arrow.svg?raw=true"
+                  alt="Arrow"
+                />
               </button>
             </div>
           </div>
@@ -91,7 +100,11 @@ function Drawer({ onClose, items = [], onCartDelete, opened }) {
                 ? `Ваш заказ #${orderId} скоро будет передан курьерской доставке`
                 : 'Добавьте хотябы одну пару обуви, чтобы сделать заказ.'
             }
-            image={isOrederComplete ? '/img/complete-order.jpg' : '/img/empty-cart.jpg'}
+            image={
+              isOrederComplete
+                ? 'https://github.com/Michael-Plat/online-store-2-shoes/blob/gh-pages/img/complete-order.jpg?raw=true'
+                : 'https://github.com/Michael-Plat/online-store-2-shoes/blob/gh-pages/img/empty-cart.jpg?raw=true'
+            }
             altImg={isOrederComplete ? 'Complete-order' : 'Empty'}
           />
         )}

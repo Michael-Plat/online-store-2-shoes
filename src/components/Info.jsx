@@ -13,7 +13,10 @@ function Info({ title, image, description, altImg }) {
       <p className="opacity-6">{description}</p>
       <Link to={'/'}>
         <button onClick={() => setCartOpened(false)} className="greenButton">
-          <img src="/img/arrow.svg" alt="Arrow" />
+          <img
+            src="https://github.com/Michael-Plat/online-store-2-shoes/blob/gh-pages/img/arrow.svg?raw=true"
+            alt="Arrow"
+          />
           Вернуться назад
         </button>
       </Link>

@@ -17,15 +17,23 @@ function Favorites() {
           <CarouselCompound.Page>
             <img
               className={styles.imgSlider}
-              src="img/Sale-Slider/sale-slider-3.jpg"
+              src="https://github.com/Michael-Plat/online-store-2-shoes/blob/gh-pages/img/Sale-Slider/sale-slider-3.jpg?raw=true"
               alt="Slider"
             />
           </CarouselCompound.Page>
           <CarouselCompound.Page>
-            <img className={styles.imgSlider} src="img/Slider-Shoes/slider-2.jpg" alt="Slider" />
+            <img
+              className={styles.imgSlider}
+              src="https://github.com/Michael-Plat/online-store-2-shoes/blob/gh-pages/img/Slider-Shoes/slider-2.jpg?raw=true"
+              alt="Slider"
+            />
           </CarouselCompound.Page>
           <CarouselCompound.Page>
-            <img className={styles.imgSlider} src="img/Slider-Shoes/slider-3.jpg" alt="Slider" />
+            <img
+              className={styles.imgSlider}
+              src="https://github.com/Michael-Plat/online-store-2-shoes/blob/gh-pages/img/Slider-Shoes/slider-3.jpg?raw=true"
+              alt="Slider"
+            />
           </CarouselCompound.Page>
         </CarouselCompound>
       </div>
@@ -43,7 +51,9 @@ function Favorites() {
           <Info
             title={'У вас нет закладок ;('}
             description={'Лайкните одну из пар Fire обуви :)'}
-            image={'img/Smiles/smile-like.jpg'}
+            image={
+              'https://github.com/Michael-Plat/online-store-2-shoes/blob/gh-pages/img/Smiles/smile-like.jpg?raw=true'
+            }
             altImg={'Smile'}
           />
         </div>

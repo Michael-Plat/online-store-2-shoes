@@ -34,19 +34,23 @@ function Home({
       <div className={styles.mainContainer}>
         <CarouselCompound infinite imdex>
           <CarouselCompound.Page>
-            <img className={styles.imgSlider} src="img/Slider-Shoes/slider-1.jpg" alt="Slider" />
-          </CarouselCompound.Page>
-          <CarouselCompound.Page>
             <img
               className={styles.imgSlider}
-              src="img/Sale-Slider/sale-slider-1.jpg"
+              src="https://github.com/Michael-Plat/online-store-2-shoes/blob/gh-pages/img/Slider-Shoes/slider-1.jpg?raw=true"
               alt="Slider"
             />
           </CarouselCompound.Page>
           <CarouselCompound.Page>
             <img
               className={styles.imgSlider}
-              src="img/Sale-Slider/sale-slider-2.jpg"
+              src="https://github.com/Michael-Plat/online-store-2-shoes/blob/gh-pages/img/Sale-Slider/sale-slider-1.jpg?raw=true"
+              alt="Slider"
+            />
+          </CarouselCompound.Page>
+          <CarouselCompound.Page>
+            <img
+              className={styles.imgSlider}
+              src="https://github.com/Michael-Plat/online-store-2-shoes/blob/gh-pages/img/Sale-Slider/sale-slider-2.jpg?raw=true"
               alt="Slider"
             />
           </CarouselCompound.Page>
@@ -59,11 +63,14 @@ function Home({
             <img
               onClick={() => setSearchValue('')}
               className="clear cu-p"
-              src="img/btn-remove.svg"
+              src="https://github.com/Michael-Plat/online-store-2-shoes/blob/gh-pages/img/btn-remove.svg?raw=true"
               alt="Clear"
             />
           )}
-          <img src="/img/search.svg" alt="Search" />
+          <img
+            src="https://github.com/Michael-Plat/online-store-2-shoes/blob/gh-pages/img/search.svg?raw=true"
+            alt="Search"
+          />
           <input
             onChange={onChangeSearchInput}
             value={searchValue}

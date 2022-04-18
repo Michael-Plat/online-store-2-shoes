@@ -42,7 +42,11 @@ function Card({ id, imgUrl, title, price, onPlus, onFavorite, favorited = false,
             <div className={styles.favorite}>
               <img
                 onClick={onClickLiked}
-                src={isLiked ? '/img/liked.svg' : '/img/unliked.svg'}
+                src={
+                  isLiked
+                    ? 'https://github.com/Michael-Plat/online-store-2-shoes/blob/gh-pages/img/liked.svg?raw=true'
+                    : 'https://github.com/Michael-Plat/online-store-2-shoes/blob/gh-pages/img/unliked.svg?raw=true'
+                }
                 alt="Unliked"
               />
             </div>
@@ -58,7 +62,11 @@ function Card({ id, imgUrl, title, price, onPlus, onFavorite, favorited = false,
               <img
                 className={styles.plus}
                 onClick={onClickPlus}
-                src={isItemAdded(id) ? '/img/btn-checked.svg' : '/img/btn-plus.svg'}
+                src={
+                  isItemAdded(id)
+                    ? 'https://github.com/Michael-Plat/online-store-2-shoes/blob/gh-pages/img/btn-checked.svg?raw=true'
+                    : 'https://github.com/Michael-Plat/online-store-2-shoes/blob/gh-pages/img/btn-plus.svg?raw=true'
+                }
                 alt="Plus"
               />
             )}
